@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.SECOND, 5);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+        //alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+        alarmManager.setRepeating(AlarmManager.RTC, cal.getTimeInMillis(), (AlarmManager.INTERVAL_FIFTEEN_MINUTES / 3), broadcast);
     }
 
     @Override
