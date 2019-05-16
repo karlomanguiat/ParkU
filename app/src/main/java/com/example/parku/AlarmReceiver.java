@@ -17,19 +17,19 @@ public class AlarmReceiver extends BroadcastReceiver{
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent notificationIntent = new Intent(context, NotificationActivity.class);
+        Intent notificationIntent = new Intent(context, MainActivity.class);
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(NotificationActivity.class);
+        stackBuilder.addParentStack(MainActivity.class);
         stackBuilder.addNextIntent(notificationIntent);
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification.Builder builder = new Notification.Builder(context);
 
-        Notification notification = builder.setContentTitle("Demo App Notification")
-                .setContentText("New Notification From Demo App..")
-                .setTicker("New Message Alert!")
+        Notification notification = builder.setContentTitle("ParkU update!")
+                .setContentText("The server updated! Check now if there are new slots available. ")
+                .setTicker("New Update from ParkU!")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentIntent(pendingIntent).build();
 
